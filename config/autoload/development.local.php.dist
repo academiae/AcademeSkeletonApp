@@ -1,0 +1,12 @@
+<?php
+
+use Zend\ConfigAggregator\ConfigAggregator;
+
+return [
+    'debug' => true,
+    ConfigAggregator::ENABLE_CACHE => false,
+
+    'view_manager' => [
+        'display_exceptions' => true,
+    ]
+];

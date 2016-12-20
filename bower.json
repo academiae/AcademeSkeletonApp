@@ -1,0 +1,9 @@
+{
+    "name": "codingmatters-zf-application",
+    "dependencies": {
+        "jquery": "^3.1",
+        "jquery-ui": "^1.12",
+        "components-font-awesome": "^4.7",
+        "components-bootstrap": "^3.3.7"
+    }
+}
