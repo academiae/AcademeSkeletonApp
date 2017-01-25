@@ -1,6 +1,5 @@
 # Composer files
 composer.phar
-composer.lock
 vendor/
 
 # Binary gettext files
@@ -28,5 +27,3 @@ nbproject
 .idea
 .project
 .settings
-domain
-module
