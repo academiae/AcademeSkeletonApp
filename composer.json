@@ -8,49 +8,37 @@
             "homepage": "http://www.gabbydgab.com/"
         }
     ],
-    "require": {
-        "php": "^7.1",
-        "roave/security-advisories": "dev-master",
-        "codingmatters/zend-expressive-config-provider": "^0.1",
-        "codingmatters/expressive-web-component": "^0.2",
-        "zendframework/zend-config-aggregator": "^0.2"
-    },
-    "require-dev": {
-        "zendframework/zend-component-installer": "^0.6",
-        "zendframework/zend-coding-standard": "^1.0",
-        "zfcampus/zf-development-mode": "^3.1",
-        "sebastian/phpcpd": "^2.0",
-        "phpunit/phpunit": "^5.7",
-        "filp/whoops": "^2.1"        
-    },
     "autoload": {
         "psr-4": {
-            "Academiae\\": "src/Academiae/"
+            "Academiae\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Academiae\\IntegrationTest\\": "test/integration/"
+            "AcademiaeTest\\": "test/"
         }
     },
-    "scripts": {
-        "post-install-cmd": [
-            "@install-ui-component",
-            "@debug"
-        ],
-        "post-update-cmd": [
-            "@update-ui-component",
-            "@debug"
-        ],
-        "debug": [
-            "@cs",
+    "require": {
+        "php": "^7.1",
+        "roave/security-advisories": "dev-master",
+        "codingmatters/zend-expressive-config-provider": "^0.2.0",
+        "codingmatters/expressive-web-component": "^0.4.0",
+        "zendframework/zend-config-aggregator": "^0.2.0"
+    },
+    "require-dev": {
+        "zendframework/zend-component-installer": "^0.6.0",
+        "zendframework/zend-coding-standard": "^1.0",
+        "zfcampus/zf-development-mode": "^3.1",
+        "malukenho/docheader": "^0.1.5",
+        "sebastian/phpcpd": "^2.0",
+        "phpunit/phpunit": "^5.7",
+        "filp/whoops": "^2.1"
+    },
+    "scripts": {        
+        "check": [
+            "@cs-check",
             "@cpd",
             "@test"
-        ],
-        "install-ui-component": [
-            "@remove-assets",
-            "bower install",
-            "@copy-assets"
         ],
         "update-ui-component": [
             "@remove-assets",
@@ -70,10 +58,13 @@
             "cp -ar bower_components/components-bootstrap public/assets/bootstrap",
             "rm -rf bower_components"
         ],
-        "cs": "phpcs --ignore=/vendor,/build config src test",
-        "cs-fix": "phpcbf --ignore=/vendor,/build config src test",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
         "cpd": "phpcpd --exclude=/vendor,/build --fuzzy config src test",
-        "test": "phpunit --verbose",
+        "test": "phpunit --verbose --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "upload-coverage": "coveralls -v",
+        "license-check": "docheader check src/ test/",
         "development-disable": "zf-development-mode disable",
         "development-enable": "zf-development-mode enable",
         "development-status": "zf-development-mode status",
