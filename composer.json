@@ -19,7 +19,7 @@
         }
     },
     "require": {
-        "php": "7.1.1",
+        "php": "~7.1.1",
         "roave/security-advisories": "dev-master",
         "codingmatters/zend-expressive-config-provider": "^0.2.0",
         "codingmatters/expressive-web-component": "^0.4.0",
@@ -30,7 +30,7 @@
         "zendframework/zend-coding-standard": "^1.0",
         "zfcampus/zf-development-mode": "^3.1",
         "malukenho/docheader": "^0.1.5",
-        "sebastian/phpcpd": "^2.0",
+        "sebastian/phpcpd": "^3.0",
         "phpunit/phpunit": "^6.0"
     },
     "scripts": {        
